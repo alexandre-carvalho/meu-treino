@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "noEmit": true,
+    "jsx": "react-native",
+    "baseUrl": "src",
+    "paths": {
+      "~/*": ["*"]
+    },
+    "typeRoots": ["./src/types"]
+  },
+  "extends": "expo/tsconfig.base"
+}
