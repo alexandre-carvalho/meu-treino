@@ -52,4 +52,13 @@ buck-out/
 # Expo
 .expo/
 web-build/
-dist/
+
+# Env
+env/.env
+
+# Miscellaneous
+.docker/
+
+# Tests
+tests/**/__snapshots__/
+coverage/
