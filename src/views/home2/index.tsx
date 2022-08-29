@@ -9,7 +9,7 @@ const Home2: React.FC = () => {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        width: 100,
+        backgroundColor: "#FFF",
       }}
     >
       <Text>Home2</Text>

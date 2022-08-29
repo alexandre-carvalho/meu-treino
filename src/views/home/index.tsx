@@ -9,7 +9,7 @@ const Home: React.FC = () => {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        width: 100,
+        backgroundColor: "#FFF",
       }}
     >
       <Text>Meu Treino</Text>
