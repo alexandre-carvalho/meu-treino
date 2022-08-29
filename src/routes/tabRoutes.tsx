@@ -11,16 +11,21 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 // Models
 import { TabBarItem, tabBar } from "~/model/tabBar";
 
+// Services
+import { navigate } from "~/services/navigation";
+
 // Styles
 import theme from "~/themes";
 
 // Authenticated routes
 import Home from "~/views/home";
+import Home2 from "~/views/home2";
 
 const Tab = createBottomTabNavigator();
 const TabRoutes: React.FC = () => {
   function handlePress(item: TabBarItem) {
     if (!item.route) return;
+    navigate(item);
   }
 
   function TabBar({ state }: any) {
@@ -101,6 +106,7 @@ const TabRoutes: React.FC = () => {
       }}
     >
       <Tab.Screen name="Home" component={Home} />
+      <Tab.Screen name="Home2" component={Home2} />
     </Tab.Navigator>
   );
 };

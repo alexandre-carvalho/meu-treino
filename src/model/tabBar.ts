@@ -16,4 +16,11 @@ export const tabBar: TabBarItem[] = [
     label: "Início",
     icon: HomeIcon,
   },
+  {
+    active: true,
+    slug: "home2",
+    route: "Home2",
+    label: "Início2",
+    icon: HomeIcon,
+  },
 ];
