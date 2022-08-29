@@ -4,6 +4,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createStackNavigator } from "@react-navigation/stack";
 import { Image } from "react-native";
 
+//Assets
 import IcoHome from "~/assets/png/tabBar/home.png";
 import IcoHome2 from "~/assets/png/tabBar/home2.png";
 

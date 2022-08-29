@@ -1,6 +1,5 @@
 const black = {
   n0: '#000000',
-  n01: '#00000066',
 };
 
 const blue = {
@@ -71,7 +70,6 @@ const red = {
 
 const white = {
   n0: '#FFFFFF',
-  n01: '#FFFFFFEE',
 };
 
 export default {
