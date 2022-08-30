@@ -12,8 +12,11 @@ import IcoHome2 from "~/assets/png/tabBar/home2.png";
 import Home from "~/views/home";
 import Home2 from "~/views/home2";
 
+//Style
+import theme from "~/themes";
+
 const Tab = createBottomTabNavigator();
-const TabBar = () => {
+const TabBarRoutes = () => {
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({
@@ -25,10 +28,18 @@ const TabBar = () => {
             iconName = focused ? IcoHome : IcoHome2;
           }
 
-          return <Image resizeMode={"contain"} source={iconName} />;
+          return (
+            <Image
+              resizeMode={"contain"}
+              source={iconName}
+              style={{ opacity: focused ? 1 : 0.4, width: 28, height: 28 }}
+            />
+          );
         },
-        tabBarActiveTintColor: "tomato",
-        tabBarInactiveTintColor: "gray",
+        tabBarActiveTintColor: theme.colors.black.n0,
+        tabBarInactiveTintColor: theme.colors.grey.n0,
+        unmountOnBlur: true,
+        headerShown: false,
       })}
     >
       <Tab.Screen name="Home" component={Home} />
@@ -38,7 +49,7 @@ const TabBar = () => {
 };
 
 const Stack = createStackNavigator();
-const AuthStack = () => {
+const StackRoutes = () => {
   return (
     <Stack.Navigator
       initialRouteName="HomeTabRoutes"
@@ -46,14 +57,13 @@ const AuthStack = () => {
         headerShown: false,
       }}
     >
-      <Stack.Screen name="HomeTabRoutes" component={TabBar} />
+      <Stack.Screen name="HomeTabRoutes" component={TabBarRoutes} />
     </Stack.Navigator>
   );
 };
 
-//Main route - call Auth routes or App routes
 const RootStack = createSwitchNavigator({
-  Auth: AuthStack,
+  Auth: StackRoutes,
 });
 
 const Routes = createAppContainer(RootStack);
