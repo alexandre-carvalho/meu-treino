@@ -2,11 +2,7 @@ import React from "react";
 import { createSwitchNavigator, createAppContainer } from "react-navigation";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createStackNavigator } from "@react-navigation/stack";
-import { Image } from "react-native";
-
-//Assets
-import IcoHome from "~/assets/png/tabBar/home.png";
-import IcoTraining from "~/assets/png/tabBar/training.png";
+import { AntDesign } from "@expo/vector-icons";
 
 // Views
 import Home from "~/views/home";
@@ -21,24 +17,12 @@ const TabBarRoutes = () => {
     <Tab.Navigator
       screenOptions={({ route }) => ({
         tabBarIcon: ({ focused }) => {
-          let iconName;
-
-          switch (route.name) {
-            case "Início":
-              iconName = IcoHome;
-              break;
-            case "Treinos":
-              iconName = IcoTraining;
-              break;
-            default:
-              break;
-          }
-
           return (
-            <Image
-              resizeMode={"contain"}
-              source={iconName}
-              style={{ opacity: focused ? 1 : 0.4 }}
+            <AntDesign
+              name={route.name === "Início" ? "home" : "filetext1"}
+              size={18}
+              color={focused ? theme.colors.black.n0 : theme.colors.grey.n0}
+              style={{ opacity: focused ? 1 : 0.5 }}
             />
           );
         },
