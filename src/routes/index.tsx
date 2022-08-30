@@ -6,7 +6,7 @@ import { Image } from "react-native";
 
 //Assets
 import IcoHome from "~/assets/png/tabBar/home.png";
-import IcoHome2 from "~/assets/png/tabBar/home2.png";
+import IcoTraining from "~/assets/png/tabBar/training.png";
 
 // Views
 import Home from "~/views/home";
@@ -22,17 +22,23 @@ const TabBarRoutes = () => {
       screenOptions={({ route }) => ({
         tabBarIcon: ({ focused }) => {
           let iconName;
-          if (route.name === "Home") {
-            iconName = focused ? IcoHome : IcoHome2;
-          } else if (route.name === "Settings") {
-            iconName = focused ? IcoHome : IcoHome2;
+
+          switch (route.name) {
+            case "Início":
+              iconName = IcoHome;
+              break;
+            case "Treinos":
+              iconName = IcoTraining;
+              break;
+            default:
+              break;
           }
 
           return (
             <Image
               resizeMode={"contain"}
               source={iconName}
-              style={{ opacity: focused ? 1 : 0.4, width: 28, height: 28 }}
+              style={{ opacity: focused ? 1 : 0.4 }}
             />
           );
         },
@@ -42,8 +48,8 @@ const TabBarRoutes = () => {
         headerShown: false,
       })}
     >
-      <Tab.Screen name="Home" component={Home} />
-      <Tab.Screen name="Settings" component={Home2} />
+      <Tab.Screen name="Início" component={Home} />
+      <Tab.Screen name="Treinos" component={Home2} />
     </Tab.Navigator>
   );
 };
