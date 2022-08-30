@@ -12,7 +12,7 @@ const Home2: React.FC = () => {
         backgroundColor: "#FFF",
       }}
     >
-      <Text>Home2</Text>
+      <Text>Salvar Treinos</Text>
     </View>
   );
 };
