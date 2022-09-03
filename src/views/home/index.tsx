@@ -1,9 +1,12 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { Text } from "react-native";
+
+//Styles
+import * as S from "./styles";
 
 const Home: React.FC = () => {
   return (
-    <View
+    <S.Container
       style={{
         flex: 1,
         display: "flex",
@@ -13,7 +16,7 @@ const Home: React.FC = () => {
       }}
     >
       <Text>Meus Treinos</Text>
-    </View>
+    </S.Container>
   );
 };
 
