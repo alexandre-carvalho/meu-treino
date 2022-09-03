@@ -11,7 +11,7 @@ const App: React.FC = () => {
         hidden={false}
         barStyle="dark-content"
         backgroundColor="transparent"
-        translucent={true}
+        translucent={false}
       />
       <Routes />
     </NavigationContainer>
