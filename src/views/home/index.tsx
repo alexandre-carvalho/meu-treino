@@ -6,11 +6,18 @@ import Card from "./components/Card";
 //Styles
 import * as S from "./styles";
 
-const data = {
-  activity: "Caminhada",
-  date: "03/09/2022",
-  duration: "00:28:00",
-};
+const data = [
+  {
+    activity: "Caminhada",
+    date: "03/09/2022",
+    duration: "00:28:00",
+  },
+  {
+    activity: "Corrida",
+    date: "03/09/2022",
+    duration: "00:28:00",
+  },
+];
 const Home: React.FC = () => {
   return (
     <S.Container>
