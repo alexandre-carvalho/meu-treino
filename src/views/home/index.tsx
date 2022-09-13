@@ -6,6 +6,11 @@ import Card from "./components/Card";
 //Styles
 import * as S from "./styles";
 
+const data = {
+  activity: "Caminhada",
+  date: "03/09/2022",
+  duration: "00:28:00",
+};
 const Home: React.FC = () => {
   return (
     <S.Container>
@@ -22,7 +27,7 @@ const Home: React.FC = () => {
           </S.LabelContent>
         </S.UserContent>
         <S.CardContainer>
-          <Card title="Últimos Treinos" />
+          <Card data={data} title="Últimos Treinos" />
         </S.CardContainer>
       </S.Content>
     </S.Container>

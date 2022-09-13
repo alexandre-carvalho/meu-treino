@@ -1,13 +1,19 @@
 import React from "react";
 
+//Models
+import { CardInfo } from "~/models/card";
+
 //Styles
 import * as S from "./styles";
 
 interface CardProps {
   title: string;
+  data: CardInfo[];
 }
 
-const Card: React.FC<CardProps> = ({ title }) => {
+const Card: React.FC<CardProps | any> = ({ title, data }) => {
+  const info = data[0];
+  console.log("DATA", info);
   return (
     <S.Container>
       <S.Title>
@@ -15,20 +21,8 @@ const Card: React.FC<CardProps> = ({ title }) => {
       </S.Title>
       <S.Content>
         <S.Rows>
-          <S.Label fsize={18}>Atividade:</S.Label>
-          <S.Label fsize={18}>Caminhada</S.Label>
-        </S.Rows>
-        <S.Rows>
-          <S.Label fsize={18}>Data:</S.Label>
-          <S.Label fsize={18}>03/09/2022</S.Label>
-        </S.Rows>
-        <S.Rows>
-          <S.Label fsize={18}>Duração:</S.Label>
-          <S.Label fsize={18}>00:28:00</S.Label>
-        </S.Rows>
-        <S.Rows>
-          <S.Label fsize={18}>Rendimento:</S.Label>
-          <S.Label fsize={18}>Médio</S.Label>
+          <S.Label fsize={18}>{info && info.activity}:</S.Label>
+          <S.Label fsize={18}>{info && info.activity}</S.Label>
         </S.Rows>
       </S.Content>
     </S.Container>

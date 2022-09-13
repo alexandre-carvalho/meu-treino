@@ -25,7 +25,7 @@ export const Title = styled(View)`
 `;
 
 export const Label = styled(Text)<any>`
-  margin-right: 3px;
+  margin-right: 4px;
   font-size: ${(props: any) => (props.fsize ? props.fsize + "px" : "11px")};
 `;
 
