@@ -25,6 +25,7 @@ export const Title = styled(View)`
 `;
 
 export const Label = styled(Text)<any>`
+  color: ${(props: any) => (props.color ? props.color : theme.colors.grey.n0)};
   margin-right: 4px;
   font-size: ${(props: any) => (props.fsize ? props.fsize + "px" : "11px")};
 `;

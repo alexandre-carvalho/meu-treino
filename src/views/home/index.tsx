@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 //Components
 import Card from "./components/Card";
@@ -10,15 +10,25 @@ const data = [
   {
     activity: "Caminhada",
     date: "03/09/2022",
-    duration: "00:28:00",
+    duration: 30,
   },
   {
     activity: "Corrida",
     date: "03/09/2022",
-    duration: "00:28:00",
+    duration: 26,
   },
 ];
 const Home: React.FC = () => {
+  const [result, setResult] = useState([{}]);
+  console.log("RESULT", result);
+
+  useEffect(() => {
+    if (!data) return;
+    if (!!data && data !== null) {
+      setResult(data);
+    }
+  }, [data]);
+
   return (
     <S.Container>
       <S.Content>
@@ -34,7 +44,7 @@ const Home: React.FC = () => {
           </S.LabelContent>
         </S.UserContent>
         <S.CardContainer>
-          <Card data={data} title="Últimos Treinos" />
+          <Card data={result} title="Últimos Treinos" />
         </S.CardContainer>
       </S.Content>
     </S.Container>
