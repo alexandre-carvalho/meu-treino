@@ -15,20 +15,10 @@ const data = [
   {
     activity: "Corrida",
     date: "03/09/2022",
-    duration: 26,
+    duration: 20,
   },
 ];
 const Home: React.FC = () => {
-  const [result, setResult] = useState([{}]);
-  console.log("RESULT", result);
-
-  useEffect(() => {
-    if (!data) return;
-    if (!!data && data !== null) {
-      setResult(data);
-    }
-  }, [data]);
-
   return (
     <S.Container>
       <S.Content>
@@ -44,7 +34,7 @@ const Home: React.FC = () => {
           </S.LabelContent>
         </S.UserContent>
         <S.CardContainer>
-          <Card data={result} title="Últimos Treinos" />
+          <Card data={data} title="Últimos Treinos" />
         </S.CardContainer>
       </S.Content>
     </S.Container>

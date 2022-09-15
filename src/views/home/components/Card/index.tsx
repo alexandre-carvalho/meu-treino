@@ -10,52 +10,49 @@ interface CardProps {
 }
 
 const Card: React.FC<CardProps | any> = ({ title, data }) => {
-  const [color, setColor] = useState("");
-  const [status, setStatus] = useState("");
-  const item = data[0];
+  const [response, setResponse] = useState([]);
 
   useEffect(() => {
-    onStatus();
-  }, [onStatus]);
+    if (!data || data === null) return;
+    onResult();
+  }, [data]);
 
-  function onStatus() {
-    if (item.duration < 20) {
-      setStatus("Baixo");
-      setColor(theme.colors.red.n0);
-    }
-    if (item.duration >= 20 || item.duration < 30) {
-      setStatus("Regular");
-      setColor(theme.colors.orange.n0);
-    }
-    if (item.duration >= 30) {
-      setStatus("Alto");
-      setColor(theme.colors.green.n0);
-    }
+  function onResult() {
+    const res =
+      data &&
+      data.map((x: any) => {
+        return x;
+      });
+    setResponse(res);
   }
-  console.log("ITEM", item);
 
   return (
     <S.Container>
       <S.Title>
         <S.Label fsize={16}>{title}</S.Label>
       </S.Title>
-      <S.Content>
-        <S.Rows>
-          <S.Label fsize={18}>Atividade: {item.activity}</S.Label>
-        </S.Rows>
-        <S.Rows>
-          <S.Label fsize={18}>Data: {item.date}</S.Label>
-        </S.Rows>
-        <S.Rows>
-          <S.Label fsize={18}>Duração: {item.duration}</S.Label>
-        </S.Rows>
-        <S.Rows>
-          <S.Label fsize={18}>Rendimento:</S.Label>
-          <S.Label color={color} fsize={18}>
-            {status}
-          </S.Label>
-        </S.Rows>
-      </S.Content>
+      {!!response &&
+        response.map((item: any, key: any) => {
+          return (
+            <S.Content key={key}>
+              <S.Rows>
+                <S.Label fsize={18}>Atividade:{item.activity}</S.Label>
+              </S.Rows>
+              <S.Rows>
+                <S.Label fsize={18}>Data:{item.date}</S.Label>
+              </S.Rows>
+              <S.Rows>
+                <S.Label fsize={18}>Duração:{item.duration}</S.Label>
+              </S.Rows>
+              <S.Rows>
+                <S.Label fsize={18}>Rendimento:</S.Label>
+                <S.Label fsize={18}>
+                  {item.duration <= 20 ? "Baixo" : "Alto"}
+                </S.Label>
+              </S.Rows>
+            </S.Content>
+          );
+        })}
     </S.Container>
   );
 };
